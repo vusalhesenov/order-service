@@ -49,6 +49,5 @@ public class OrderServiceImpl implements OrderService {
         } else {
             throw new IllegalArgumentException("product not in stock please try again later");
         }
-        System.out.println("salam");
     }
 }
