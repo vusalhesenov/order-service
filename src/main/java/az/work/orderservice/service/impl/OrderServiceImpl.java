@@ -1,12 +1,10 @@
 package az.work.orderservice.service.impl;
 
-import az.work.orderservice.config.WebClientConfig;
 import az.work.orderservice.dto.InventoryResponse;
-import az.work.orderservice.dto.OrderLineItemsDto;
 import az.work.orderservice.dto.OrderRequest;
 import az.work.orderservice.entity.Order;
 import az.work.orderservice.entity.OrderLineItems;
-import az.work.orderservice.exception.ProductException;
+import az.work.orderservice.exception.DataNotFoundException;
 import az.work.orderservice.mapper.OrderMapper;
 import az.work.orderservice.repository.OrderRepository;
 import az.work.orderservice.service.OrderService;
@@ -47,7 +45,8 @@ public class OrderServiceImpl implements OrderService {
         if (allProductInStock) {
             orderRepository.save(order);
         } else {
-            throw new IllegalArgumentException("product not in stock please try again later");
+            throw DataNotFoundException.productNotInStockException();
         }
     }
+
 }

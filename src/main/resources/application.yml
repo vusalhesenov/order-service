@@ -1,7 +1,7 @@
 spring:
   datasource:
     driver-class-name: com.mysql.jdbc.Driver
-    url: jdbc:mysql://localhost:3306/accounts
+    url: jdbc:mysql://localhost:3306/accounts?createDatabaseIfNotExist=true
     username: root
     password: root
   application:
