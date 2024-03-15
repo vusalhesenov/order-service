@@ -2,6 +2,7 @@ package az.work.orderservice.mapper;
 
 
 import az.work.orderservice.dto.OrderLineItemsDto;
+import az.work.orderservice.entity.Order;
 import az.work.orderservice.entity.OrderLineItems;
 import org.mapstruct.Mapper;
 import org.mapstruct.ReportingPolicy;
@@ -11,4 +12,7 @@ public interface OrderMapper {
 
 
     OrderLineItems mapToEntity(OrderLineItemsDto orderLineItemsDto);
+
+    OrderLineItemsDto mapToOrderItemsDto(Order order);
+
 }
