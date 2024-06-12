@@ -1,9 +1,8 @@
 package az.work.orderservice.service;
 
-import az.work.orderservice.controller.Request;
-import az.work.orderservice.dto.OrderLineItemsDto;
 import az.work.orderservice.dto.OrderRequest;
 import az.work.orderservice.entity.Order;
+import feign.Request;
 
 import java.util.List;
 
@@ -13,5 +12,5 @@ public interface OrderService {
 
     List<Order> findAll();
 
-    void save(Request request);
+//    void save(Request request);
 }

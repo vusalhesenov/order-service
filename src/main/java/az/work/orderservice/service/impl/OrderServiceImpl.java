@@ -1,9 +1,6 @@
 package az.work.orderservice.service.impl;
 
-import az.work.orderservice.client.InventoryClient;
-import az.work.orderservice.controller.Request;
 import az.work.orderservice.dto.InventoryResponse;
-import az.work.orderservice.dto.OrderLineItemsDto;
 import az.work.orderservice.dto.OrderRequest;
 import az.work.orderservice.entity.Order;
 import az.work.orderservice.entity.OrderLineItems;
@@ -11,16 +8,12 @@ import az.work.orderservice.exception.DataNotFoundException;
 import az.work.orderservice.mapper.OrderMapper;
 import az.work.orderservice.repository.OrderRepository;
 import az.work.orderservice.service.OrderService;
+import feign.Request;
 import lombok.RequiredArgsConstructor;
-import org.springframework.http.MediaType;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import org.springframework.web.bind.annotation.ResponseStatus;
-import org.springframework.web.reactive.function.BodyInserters;
 import org.springframework.web.reactive.function.client.WebClient;
-import reactor.core.publisher.Mono;
 
-import java.net.URI;
 import java.util.Arrays;
 import java.util.List;
 import java.util.UUID;
@@ -59,16 +52,16 @@ public class OrderServiceImpl implements OrderService {
         }
     }
 
-    @Override
-    public void save(Request request){
-        webClientBuilder.build()
-                .post()
-                .uri("http://inventory-service/api/inventory")
-                .bodyValue(request)
-                .retrieve()
-                .bodyToMono(Request.class)
-                .block();
-    }
+//    @Override
+//    public void save(Request request){
+//        webClientBuilder.build()
+//                .post()
+//                .uri("http://inventory-service/api/inventory")
+//                .bodyValue(request)
+//                .retrieve()
+//                .bodyToMono(Request.class)
+//                .block();
+//    }
 
     @Override
     public List<Order> findAll() {
